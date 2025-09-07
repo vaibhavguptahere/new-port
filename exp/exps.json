@@ -1,0 +1,169 @@
+[
+  {
+    "name": "Innovate25 - BU",
+    "desc": "A prestigious innovation-centric hackathon where teams showcase cutting-edge solutions to real-world problems using technology and AI conducted by Microsoft in collaboration with Bennett University.",
+    "image": "techarena",
+    "category": "hacks"
+  },
+
+  {
+    "name": "Tech Arena - BU",
+    "desc": "A university-level technical showcase where students present innovative software or hardware solutions and compete for top honors.",
+    "image": "techarena",
+    "category": "hacks",
+    "links": {
+      "view": "https://github.com/vaibhavguptahere/FitAura-TheFitnessSolution",
+      "code": "https://github.com/vaibhavguptahere/FitAura-TheFitnessSolution"
+    }
+  },
+
+  {
+    "name": "LNM Hacks 7.0",
+    "desc": "One of the largest student hackathons hosted by LNMIIT, Jaipur—focused on solving diverse problem statements across domains like fintech, healthtech, and sustainability.",
+    "image": "lnm",
+    "category": "hacks",
+    "links": {
+      "view": "https://bullseyetrak.netlify.app/",
+      "code": "https://github.com/vaibhavguptahere/BullsEye-StockScreener"
+    }
+  },
+
+  {
+    "name": "Hackaccino - BU",
+    "desc": "Hackaccino is Bennett University’s annual 24-hour hackathon, known for its intense energy, innovation, and student-driven problem solving. Organized by CSI, it brings together coders, coffee, and creativity to build tech solutions with real-world impact.",
+    "image": "lnm",
+    "category": "hacks",
+    "links": {
+      "view": "https://vaibhavguptahere.github.io/Amazon-Clone/",
+      "code": "https://github.com/vaibhavguptahere/Amazon-Clone"
+    }
+  },
+
+  {
+    "name": "Google Soln Challenge 2025",
+    "desc": "A global competition powered by Google Developers, encouraging students to develop impactful tech projects aligned with the UN’s Sustainable Development Goals.",
+    "image": "googlesoln",
+    "category": "hacks",
+    "links": {
+      "view": "https://dojomaster.netlify.app/",
+      "code": "https://github.com/vaibhavguptahere/DoJo-MasterTasks"
+    }
+  },
+
+  {
+    "name": "Stellar Vision",
+    "desc": "Stellar Vision, part of Uphoria 2025, was a cosmic exploration event where we dived deep into the mysteries of the universe. From the Big Bang to quantum gravity, it sparked engaging discussions and ignited curiosity about the Theory of Everything.",
+    "image": "stellarvision",
+    "category": "others",
+    "links": {
+      "view": "https://secure-z.vercel.app/",
+      "code": "https://github.com/vaibhavguptahere/SecureZ"
+    }
+  },
+
+  {
+    "name": "Startup Mahakumbh",
+    "desc": "A large-scale startup expo and entrepreneurial fair that brings together student startups, early-stage founders, and ecosystem enablers under one roof.",
+    "image": "mahakumbh",
+    "category": "others",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "DeCrypt 2025- Foss BU",
+    "desc": "An open-source focused fest organized by the Free and Open Source Software community at Bennett University, promoting collaborative dev practices.",
+    "image": "decrypt",
+    "category": "others",
+    "links": {
+      "view": "https://vaibhavguptahere.github.io/NexusBlog-Website/",
+      "code": "https://github.com/vaibhavguptahere/NexusBlog-Website"
+    }
+  },
+  {
+    "name": "Global AI Summit",
+    "desc": "A major international summit that explores cutting-edge advancements in artificial intelligence, featuring keynotes, workshops, and student-led demos.",
+    "category": "others",
+    "links": {
+      "view": "https://vaibhavguptahere.github.io/DotNewSkills-Tailwind/",
+      "code": "https://github.com/vaibhavguptahere/DotNewSkills-Tailwind"
+    }
+  },
+  {
+    "name": "Career Essentials in Gen AI",
+    "desc": "A foundational course series focused on career growth and AI readiness—helping learners adapt to the evolving GenAI landscape.",
+    "image": "genai",
+    "category": "skills",
+    "links": {
+      "view": "https://www.linkedin.com/posts/activity-7266748707226677248-J4Ur?utm_source=share&utm_medium=member_desktop",
+      "code": "https://github.com/vaibhavguptahere/FitTrack"
+    }
+  },
+  {
+    "name": "Python Fundamentals - Infosys",
+    "desc": "A beginner-friendly programming course offered by Infosys Springboard covering the basics of Python through practical exercises.",
+    "image": "python",
+    "category": "coding"
+  },
+    {
+    "name": "Java Programming - Infosys",
+    "desc": "A skill-enhancement certification in Java development, providing insights into OOP, syntax, and logical building using Java.",
+    "image": "java",
+    "category": "coding",
+    "links": {
+      "view": "https://www.linkedin.com/posts/activity-7259155956062707713-MPr3?utm_source=share&utm_medium=member_desktop",
+      "code": "https://github.com/vaibhavguptahere/Python-7-Streak/tree/main/exp-4"
+    }
+  },
+  {
+    "name": "HYPE 2.0 - CSI BU",
+    "desc": "A flagship technical symposium hosted by the Computer Society of India, BU Chapter, combining competitions, workshops, and tech talks.",
+    "image": "hype",
+    "category": "others",
+    "links": {
+      "view": "https://www.linkedin.com/posts/activity-7259155956062707713-MPr3?utm_source=share&utm_medium=member_desktop",
+      "code": "https://github.com/vaibhavguptahere/Python-7-Streak/tree/main/exp-4"
+    }
+  },
+  {
+    "name": "Sawit AI Learnathon",
+    "desc": "The SAWiT Learnathon by GUVI was an exciting dive into Generative AI, where I built INDIVEDA, an AI tool that answers questions based on the Constitution of India. It was an enriching experience blending tech with civic knowledge!",
+    "image": "guvi",
+    "category": "hacks",
+    "links": {
+      "view": "https://www.linkedin.com/posts/activity-7260577283806015488-bmUp?utm_source=share&utm_medium=member_desktop",
+      "code": "https://github.com/vaibhavguptahere/Python-7-Streak/tree/main/exp-5"
+    }
+  },
+  {
+    "name": "Front End Development - HTML",
+    "desc": "Certification modules that cover the foundations of front-end development, focusing on HTML structure and CSS styling techniques.",
+    "image": "html",
+    "category": "coding",
+    "links": {
+      "view": "https://www.linkedin.com/posts/activity-7259155956062707713-MPr3?utm_source=share&utm_medium=member_desktop",
+      "code": "https://github.com/vaibhavguptahere/Python-7-Streak/tree/main/exp-4"
+    }
+  },
+  {
+    "name": "Front End Development - CSS",
+    "desc": "Certification modules that cover the foundations of front-end development, focusing on HTML structure and CSS styling techniques.",
+    "image": "css",
+    "category": "coding",
+    "links": {
+      "view": "https://www.linkedin.com/posts/activity-7259155956062707713-MPr3?utm_source=share&utm_medium=member_desktop",
+      "code": "https://github.com/vaibhavguptahere/Python-7-Streak/tree/main/exp-4"
+    }
+  },
+  {
+    "name": "Web Designing",
+    "desc": "A combined certification highlighting web design principles—UI layouts, responsive design, and visual aesthetics using HTML/CSS.",
+    "image": "webd",
+    "category": "coding",
+    "links": {
+      "view": "https://www.linkedin.com/posts/activity-7259155956062707713-MPr3?utm_source=share&utm_medium=member_desktop",
+      "code": "https://github.com/vaibhavguptahere/Python-7-Streak/tree/main/exp-4"
+    }
+  }
+]
