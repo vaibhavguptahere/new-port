@@ -11,6 +11,7 @@ import Experience from '../components/Experience';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import ScrollTop from '../components/ScrollTop';
+import './globals.css';
 
 export default function Home() {
   useEffect(() => {
