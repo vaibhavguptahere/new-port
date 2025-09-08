@@ -1,16 +1,16 @@
 'use client';
 
 import { useEffect } from 'react';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import Education from '@/components/Education';
-import Projects from '@/components/Projects';
-import Experience from '@/components/Experience';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
-import ScrollTop from '@/components/ScrollTop';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import About from '../components/About';
+import Skills from '../co0mponents/Skills';
+import Education from '../components/Education';
+import Projects from '../components/Projects';
+import Experience from '../components/Experience';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
+import ScrollTop from '../components/ScrollTop';
 
 export default function Home() {
   useEffect(() => {
