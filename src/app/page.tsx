@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import About from '../components/About';
-import Skills from '../co0mponents/Skills';
+import Skills from '../components/Skills';
 import Education from '../components/Education';
 import Projects from '../components/Projects';
 import Experience from '../components/Experience';
