@@ -199,13 +199,13 @@ const ProjectsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#010136] to-[#00003a] pt-28">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[10%] h-[6.5rem] bg-white shadow-md">
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 lg:px-[10%] h-16 lg:h-[6.5rem] bg-white shadow-md">
         <Link href="/" className="text-[1.9rem] font-bold text-[#0E2431] hover:text-[#fc8c05] transition-colors">
           <i className="fab fa-vuejs text-[2.2rem]"></i>aibhav
         </Link>
         
-        <nav>
-          <ul className="flex items-center space-x-10">
+        <nav className="hidden md:block">
+          <ul className="flex items-center space-x-6 lg:space-x-10">
             <li><Link href="/#home" className="text-[#0E2431] hover:text-[#011aff] font-semibold">Home</Link></li>
             <li><Link href="/#about" className="text-[#0E2431] hover:text-[#011aff] font-semibold">About</Link></li>
             <li><Link href="/#skills" className="text-[#0E2431] hover:text-[#011aff] font-semibold">Skills</Link></li>
@@ -246,7 +246,7 @@ const ProjectsPage = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.name}
@@ -254,8 +254,8 @@ const ProjectsPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-lg shadow-lg overflow-hidden h-[30rem] relative group tilt"
-                style={{ width: '380px', margin: '1rem auto' }}
+                className="bg-white rounded-lg shadow-lg overflow-hidden h-[30rem] relative group tilt project-card mx-auto"
+                style={{ maxWidth: '380px' }}
               >
                 <Image
                   src={`/${project.image}.png`}
@@ -272,13 +272,13 @@ const ProjectsPage = () => {
                   </div>
                   
                   <div className="p-8 flex flex-col justify-center flex-1">
-                    <p className="text-lg mb-8">{project.desc}</p>
+                    <p className="text-sm md:text-base lg:text-lg mb-4 lg:mb-8">{project.desc}</p>
                     <div className="flex justify-between">
                       <a
                         href={project.links.view}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-6 py-3 bg-black text-white text-lg rounded-lg hover:bg-[#310ae0f5] transition-colors mr-4"
+                        className="inline-block px-4 lg:px-6 py-3 bg-black text-white text-sm lg:text-lg rounded-lg hover:bg-[#310ae0f5] transition-colors mr-4"
                       >
                         <i className="fas fa-eye mr-2"></i>View
                       </a>
@@ -286,7 +286,7 @@ const ProjectsPage = () => {
                         href={project.links.code}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-6 py-3 bg-black text-white text-lg rounded-lg hover:bg-[#310ae0f5] transition-colors"
+                        className="inline-block px-4 lg:px-6 py-3 bg-black text-white text-sm lg:text-lg rounded-lg hover:bg-[#310ae0f5] transition-colors"
                       >
                         Code <i className="fas fa-code ml-2"></i>
                       </a>
@@ -306,7 +306,7 @@ const ProjectsPage = () => {
           >
             <Link
               href="/#work"
-              className="inline-block px-12 py-6 border-2 border-white text-white font-semibold text-lg rounded-lg shadow-lg hover:bg-white hover:text-black transition-all duration-300 font-nunito"
+              className="inline-block px-8 md:px-12 py-4 md:py-6 border-2 border-white text-white font-semibold text-base md:text-lg rounded-lg shadow-lg hover:bg-white hover:text-black transition-all duration-300 font-nunito btn-primary"
             >
               <i className="fas fa-arrow-left mr-2"></i>
               <span>Back to Home</span>

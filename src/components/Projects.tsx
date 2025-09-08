@@ -121,19 +121,19 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="work" className="bg-gradient-to-b from-[#000031] to-[#00002c] py-20 px-[9%]">
+    <section id="work" className="bg-gradient-to-b from-[#000031] to-[#00002c] py-20 px-4 lg:px-[9%]">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-4xl font-bold text-center text-white mb-8 p-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8 p-4">
           <i className="fas fa-laptop-code mr-4"></i>
           Projects <span className="text-yellow-300">Made</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={project.name}
@@ -141,12 +141,13 @@ const Projects = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden h-[30rem] relative group tilt"
+              className="bg-white rounded-lg shadow-lg overflow-hidden h-[30rem] relative group tilt project-card mx-auto"
+              style={{ maxWidth: '380px' }}
             >
               <Image
                 src={`/${project.image}.png`}
                 alt={project.name}
-                width={400}
+                width={380}
                 height={300}
                 className="w-full h-full object-cover"
                 draggable={false}
@@ -154,17 +155,17 @@ const Projects = () => {
               
               <div className="absolute top-[85%] left-0 w-full h-full bg-white/90 flex flex-col transition-all duration-300 group-hover:top-[25%]">
                 <div className="flex justify-between items-center h-[4.5rem] w-full px-4 bg-[#ffd900]">
-                  <h3 className="text-2xl font-bold">{project.name}</h3>
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold">{project.name}</h3>
                 </div>
                 
-                <div className="p-8 flex flex-col justify-center flex-1">
-                  <p className="text-lg mb-8">{project.desc}</p>
-                  <div className="flex justify-between">
+                <div className="p-4 lg:p-8 flex flex-col justify-center flex-1">
+                  <p className="text-sm md:text-base lg:text-lg mb-4 lg:mb-8">{project.desc}</p>
+                  <div className="flex justify-between gap-2">
                     <a
                       href={project.links.view}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block px-10 py-6 bg-black text-white text-lg rounded-lg hover:bg-[#310ae0f5] transition-colors mr-8"
+                      className="inline-block px-4 lg:px-10 py-3 lg:py-6 bg-black text-white text-sm lg:text-lg rounded-lg hover:bg-[#310ae0f5] transition-colors flex-1 text-center"
                     >
                       <i className="fas fa-eye mr-2"></i>View
                     </a>
@@ -172,7 +173,7 @@ const Projects = () => {
                       href={project.links.code}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block px-10 py-6 bg-black text-white text-lg rounded-lg hover:bg-[#310ae0f5] transition-colors"
+                      className="inline-block px-4 lg:px-10 py-3 lg:py-6 bg-black text-white text-sm lg:text-lg rounded-lg hover:bg-[#310ae0f5] transition-colors flex-1 text-center"
                     >
                       Code <i className="fas fa-code ml-2"></i>
                     </a>
@@ -191,7 +192,7 @@ const Projects = () => {
         >
           <Link
             href="/projects"
-            className="inline-block px-12 py-6 border-2 border-white text-white font-semibold text-lg rounded-lg shadow-lg hover:bg-white hover:text-black transition-all duration-300 font-nunito"
+            className="inline-block px-8 md:px-12 py-4 md:py-6 border-2 border-white text-white font-semibold text-base md:text-lg rounded-lg shadow-lg hover:bg-white hover:text-black transition-all duration-300 font-nunito btn-primary"
           >
             <span className="mr-2">View All</span>
             <i className="fas fa-arrow-right"></i>

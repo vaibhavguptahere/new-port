@@ -83,19 +83,19 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="bg-gradient-to-b from-[#57059e] to-[#4a00e0] py-20 px-[9%]">
+    <section id="experience" className="bg-gradient-to-b from-[#57059e] to-[#4a00e0] py-20 px-4 lg:px-[9%]">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-4xl font-bold text-center text-white mb-8 p-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8 p-4">
           <i className="fas fa-laptop-code mr-4"></i>
           Experience <span className="text-yellow-300">& Certifications</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 max-w-7xl mx-auto">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.name}
@@ -103,8 +103,8 @@ const Experience = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden h-[30rem] relative group tilt"
-              style={{ width: '380px', margin: '1rem' }}
+              className="bg-white rounded-lg shadow-lg overflow-hidden h-[30rem] relative group tilt experience-card mx-auto"
+              style={{ maxWidth: '380px' }}
             >
               <Image
                 src={`/${exp.image}.png`}
@@ -117,11 +117,11 @@ const Experience = () => {
               
               <div className="absolute top-[85%] left-0 w-full h-full bg-white/90 flex flex-col transition-all duration-300 group-hover:top-[25%]">
                 <div className="flex justify-between items-center h-[4.5rem] w-full px-4 bg-[#ffd900]">
-                  <h3 className="text-2xl font-bold">{exp.name}</h3>
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold">{exp.name}</h3>
                 </div>
                 
-                <div className="p-8 flex flex-col justify-center flex-1">
-                  <p className="text-lg">{exp.desc}</p>
+                <div className="p-4 lg:p-8 flex flex-col justify-center flex-1">
+                  <p className="text-sm md:text-base lg:text-lg">{exp.desc}</p>
                 </div>
               </div>
             </motion.div>
@@ -136,7 +136,7 @@ const Experience = () => {
         >
           <Link
             href="/experience"
-            className="inline-block px-12 py-6 border-2 border-white text-white font-semibold text-lg rounded-lg shadow-lg hover:bg-white hover:text-black transition-all duration-300 font-nunito"
+            className="inline-block px-8 md:px-12 py-4 md:py-6 border-2 border-white text-white font-semibold text-base md:text-lg rounded-lg shadow-lg hover:bg-white hover:text-black transition-all duration-300 font-nunito btn-primary"
           >
             <span className="mr-2">View All</span>
             <i className="fas fa-arrow-right"></i>

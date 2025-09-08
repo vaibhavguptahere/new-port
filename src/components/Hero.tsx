@@ -7,6 +7,7 @@ import Image from 'next/image';
 declare global {
   interface Window {
     particlesJS: any;
+    Typed: any;
   }
 }
 
@@ -129,8 +130,8 @@ const Hero = () => {
     const typedScript = document.createElement('script');
     typedScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js';
     typedScript.onload = () => {
-      if ((window as any).Typed) {
-        new (window as any).Typed(".typing-text", {
+      if (window.Typed) {
+        new window.Typed(".typing-text", {
           strings: ["frontend development", "web designing", "web development"],
           loop: true,
           typeSpeed: 50,
@@ -142,8 +143,12 @@ const Hero = () => {
     document.head.appendChild(typedScript);
 
     return () => {
-      document.head.removeChild(script);
-      document.head.removeChild(typedScript);
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+      if (document.head.contains(typedScript)) {
+        document.head.removeChild(typedScript);
+      }
     };
   }, []);
 
@@ -169,20 +174,20 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-wrap gap-6 items-center px-[9%] py-8">
+    <section id="home" className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 lg:px-[9%] py-8 gap-8">
       <div id="particles-js" ref={particlesRef}></div>
       
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex-1 min-w-[40rem] pt-4 z-10"
+        className="flex-1 min-w-0 max-w-2xl pt-4 z-10 text-center lg:text-left"
       >
-        <h2 className="text-5xl font-bold text-[#002057] mb-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#002057] mb-4">
           Hi There,<br />
           I&apos;m Vaibhav <span className="text-[#ff7b00]">Gupta</span>
         </h2>
-        <p className="text-2xl text-black font-semibold py-4">
+        <p className="text-xl md:text-2xl text-black font-semibold py-4">
           i am into <span className="typing-text text-[#940808]"></span>
         </p>
         
@@ -190,14 +195,14 @@ const Hero = () => {
           href="#about"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-block mt-4 px-12 py-6 bg-[#2506ad] text-white font-bold text-lg rounded-full shadow-lg hover:bg-[#1a047e] transition-all duration-300"
+          className="inline-block mt-4 px-8 md:px-12 py-4 md:py-6 bg-[#2506ad] text-white font-bold text-base md:text-lg rounded-full shadow-lg hover:bg-[#1a047e] transition-all duration-300 btn-primary"
         >
           <span className="mr-2">About Me</span>
           <i className="fas fa-arrow-circle-down"></i>
         </motion.a>
 
-        <div className="mt-36">
-          <ul className="flex gap-4">
+        <div className="mt-12 lg:mt-36">
+          <ul className="flex gap-4 justify-center lg:justify-start">
             {socialLinks.map((social, index) => (
               <motion.li
                 key={social.label}
@@ -210,7 +215,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className={`inline-flex items-center justify-center w-11 h-11 text-2xl text-[#00d9ff] bg-[#09011b] rounded-full transition-all duration-200 hover:text-white ${social.hoverColor}`}
+                  className={`inline-flex items-center justify-center w-11 h-11 text-2xl text-[#00d9ff] bg-[#09011b] rounded-full transition-all duration-200 hover:text-white ${social.hoverColor} hover:scale-110`}
                 >
                   <i className={social.icon}></i>
                 </a>
@@ -224,16 +229,17 @@ const Hero = () => {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex-1 min-w-[40rem] z-10"
+        className="flex-1 min-w-0 max-w-lg z-10 flex justify-center"
       >
-        <div className="ml-24">
+        <div className="w-full max-w-md">
           <Image
             src="/favicon.png"
             alt="Vaibhav Gupta"
             width={400}
             height={400}
-            className="w-[70%] rounded-full shadow-lg cursor-pointer hover:shadow-xl transition-shadow duration-300 tilt"
+            className="w-full h-auto rounded-full shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300 tilt"
             draggable={false}
+            priority
           />
         </div>
       </motion.div>
