@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Portfolio | Vaibhav Gupta",
@@ -18,7 +21,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.png" type="image/x-png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
       </head>
-      <body className="font-poppins">
+      <body className={`${inter.className} font-poppins`}>
         {children}
       </body>
     </html>
