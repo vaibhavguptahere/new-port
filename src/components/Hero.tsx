@@ -174,70 +174,114 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 lg:px-[9%] py-8 gap-8">
+    <section id="home" className="hero-gradient relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 lg:px-[9%] py-20 gap-12 overflow-hidden">
       <div id="particles-js" ref={particlesRef}></div>
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-purple-400/20 rounded-full blur-xl animate-bounce-slow"></div>
+        <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-yellow-400/20 rounded-full blur-xl animate-pulse"></div>
+      </div>
       
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex-1 min-w-0 max-w-2xl pt-4 z-10 text-center lg:text-left"
+        className="flex-1 min-w-0 max-w-3xl z-10 text-center lg:text-left"
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#002057] mb-4">
-          Hi There,<br />
-          I&apos;m Vaibhav <span className="text-[#ff7b00]">Gupta</span>
-        </h2>
-        <p className="text-xl md:text-2xl text-black font-semibold py-4">
-          i am into <span className="typing-text text-[#940808]"></span>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            Hi There,<br />
+            I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500">Vaibhav</span>
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Gupta</span>
+          </h1>
+        </motion.div>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium py-6 mb-8"
+        >
+          I am into <span className="typing-text text-yellow-300 font-bold"></span>
         </p>
         
-        <motion.a
-          href="#about"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-block mt-4 px-8 md:px-12 py-4 md:py-6 bg-[#2506ad] text-white font-bold text-base md:text-lg rounded-full shadow-lg hover:bg-[#1a047e] transition-all duration-300 btn-primary"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
         >
-          <span className="mr-2">About Me</span>
-          <i className="fas fa-arrow-circle-down"></i>
-        </motion.a>
+          <motion.a
+            href="#about"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center px-8 md:px-10 py-4 md:py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-base md:text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 pulse-animation"
+          >
+            <span className="mr-2">About Me</span>
+            <i className="fas fa-arrow-circle-down"></i>
+          </motion.a>
+          
+          <motion.a
+            href="#work"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center px-8 md:px-10 py-4 md:py-5 bg-transparent border-2 border-white text-white font-bold text-base md:text-lg rounded-full hover:bg-white hover:text-purple-600 transition-all duration-300"
+          >
+            <span className="mr-2">My Work</span>
+            <i className="fas fa-briefcase"></i>
+          </motion.a>
+        </motion.div>
 
-        <div className="mt-12 lg:mt-36">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-16 lg:mt-20"
+        >
           <ul className="flex gap-4 justify-center lg:justify-start">
             {socialLinks.map((social, index) => (
               <motion.li
                 key={social.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1 + index * 0.1, type: "spring", stiffness: 200 }}
               >
                 <a
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className={`inline-flex items-center justify-center w-11 h-11 text-2xl text-[#00d9ff] bg-[#09011b] rounded-full transition-all duration-200 hover:text-white ${social.hoverColor} hover:scale-110`}
+                  className={`inline-flex items-center justify-center w-14 h-14 text-2xl text-white bg-white/10 backdrop-blur-sm rounded-full transition-all duration-300 hover:bg-white hover:text-gray-800 hover:scale-110 hover:shadow-xl`}
                 >
                   <i className={social.icon}></i>
                 </a>
               </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
       </motion.div>
 
       <motion.div
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex-1 min-w-0 max-w-lg z-10 flex justify-center"
+        className="flex-1 min-w-0 max-w-xl z-10 flex justify-center lg:justify-end"
       >
-        <div className="w-full max-w-md">
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full blur-2xl opacity-30 animate-pulse"></div>
           <Image
             src="/favicon.png"
             alt="Vaibhav Gupta"
-            width={400}
-            height={400}
-            className="w-full h-auto rounded-full shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300 tilt"
+            width={500}
+            height={500}
+            className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] rounded-full shadow-2xl cursor-pointer hover:shadow-3xl transition-all duration-500 floating-animation optimized-image"
             draggable={false}
             priority
           />
