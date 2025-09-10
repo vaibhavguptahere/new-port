@@ -1,17 +1,29 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
 import Education from '../components/Education';
-import Projects from '../components/Projects';
-import Experience from '../components/Experience';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import ScrollTop from '../components/ScrollTop';
 import './globals.css';
+
+// Lazy load heavy components
+const Projects = dynamic(() => import('../components/Projects'), {
+  loading: () => <div className="min-h-screen bg-gradient-to-b from-[#000031] to-[#00002c] flex items-center justify-center">
+    <div className="text-white text-xl">Loading Projects...</div>
+  </div>
+});
+
+const Experience = dynamic(() => import('../components/Experience'), {
+  loading: () => <div className="min-h-screen bg-gradient-to-b from-[#57059e] to-[#4a00e0] flex items-center justify-center">
+    <div className="text-white text-xl">Loading Experience...</div>
+  </div>
+});
 
 export default function Home() {
   useEffect(() => {
@@ -59,8 +71,12 @@ export default function Home() {
       <About />
       <Skills />
       <Education />
-      <Projects />
-      <Experience />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Projects />
+      </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Experience />
+      </Suspense>
       <Contact />
       <Footer />
       <ScrollTop />

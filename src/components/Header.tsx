@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 const Header = () => {
@@ -8,54 +8,46 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      
-      // Active section detection
-      const sections = ['home', 'about', 'skills', 'education', 'work', 'experience', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+  const handleScroll = useCallback(() => {
+    const scrollY = window.scrollY;
+    setIsScrolled(scrollY > 50);
+    
+    // Active section detection with throttling
+    const sections = ['home', 'about', 'skills', 'education', 'work', 'experience', 'contact'];
+    const scrollPosition = scrollY + 200;
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const height = element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const offsetTop = element.offsetTop;
+        const height = element.offsetHeight;
+        
+        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
+          if (activeSection !== section) {
             setActiveSection(section);
-            break;
           }
+          break;
         }
+      }
+    }
+  }, [activeSection]);
+
+  useEffect(() => {
+    let ticking = false;
+    
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'education', 'work', 'experience', 'contact'];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const height = element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    return () => window.removeEventListener('scroll', throttledScroll);
+  }, [handleScroll]);
 
   const navItems = [
     { href: '#home', label: 'Home' },
@@ -67,13 +59,13 @@ const Header = () => {
     { href: '#contact', label: 'Contact' },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = useCallback((href: string) => {
     setIsMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  }, []);
 
   return (
     <motion.header
