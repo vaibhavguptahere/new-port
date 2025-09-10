@@ -12,12 +12,15 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   background: #f7f7f7;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *::selection {
@@ -27,16 +30,20 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 0.8rem;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(235, 202, 245);
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #420177;
-  border-radius: 10px;
+  background: #888;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /* Particle.js container */
@@ -47,6 +54,26 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
+}
+
+/* Performance optimizations */
+* {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Smooth scrolling performance */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Image optimization */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 /* Toast styles */
@@ -169,24 +196,99 @@ body {
 /* Responsive fixes */
 @media (max-width: 768px) {
   .navbar {
-    position: fixed;
-    top: 6.5rem;
-    right: -120%;
-    width: 75%;
-    height: calc(100vh - 6.5rem);
-    background: #0e0f31;
-    transition: right 0.3s ease;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(14, 15, 49, 0.98);
+    backdrop-filter: blur(10px);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
   
   .nav-toggle {
-    right: 0 !important;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #18023f;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+/* Hero section enhancements */
+.hero-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(255, 123, 0, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.floating-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 6, 173, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 6, 173, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 6, 173, 0); }
 }
 
 /* Project and experience card hover effects */
 .project-card, .experience-card {
   transition: all 0.3s ease;
+  will-change: transform;
 }
 
 .project-card:hover, .experience-card:hover {
@@ -194,9 +296,17 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
+/* Optimize images for performance */
+.optimized-image {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
 /* Skills card animations */
 .skill-card {
   transition: all 0.3s ease;
+  will-change: transform;
 }
 
 .skill-card:hover {
@@ -217,9 +327,25 @@ body {
 /* Form input focus effects */
 .form-input {
   transition: all 0.3s ease;
+  will-change: transform;
 }
 
 .form-input:focus {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  .project-card, .experience-card {
+    will-change: auto;
+  }
+  
+  .project-card:hover, .experience-card:hover {
+    transform: none;
+  }
+  
+  .skill-card:hover {
+    transform: scale(1.02);
+  }
 }
